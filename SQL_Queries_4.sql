@@ -42,4 +42,12 @@ select title, length from sakila.film
 order by length desc
 limit 10;
 
--- 9.
+-- 9. How many films include Behind the Scenes content?
+select special_features from sakila.film
+where special_features like '%Behind_the_Scenes%'; -- same result without underscore
+select count(special_features) from sakila.film
+where special_features like '%Behind_the_Scenes%';
+
+-- 10. List films ordered by release year and title in alphabetical order.
+select title, release_year from sakila.film
+order by release_year, title asc;
